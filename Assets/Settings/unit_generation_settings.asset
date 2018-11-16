@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7ce63afd4044373932629901411e665, type: 3}
+  m_Name: unit_generation_settings
+  m_EditorClassIdentifier: 
+  Settings:
+    GeneratedObjects:
+    - View: {fileID: 114764105346986936, guid: ca6a3411d7e98ba4aa77d92d4352a5aa, type: 2}
+      Data:
+        Health: 100
+    MinGenerationPoint: {x: -2, y: -2}
+    MaxGenerationPoint: {x: 2, y: 2}
+    DefaultStartHeight: 0.25
