@@ -16,6 +16,9 @@ MonoBehaviour:
     - View: {fileID: 114764105346986936, guid: ca6a3411d7e98ba4aa77d92d4352a5aa, type: 2}
       Data:
         Health: 100
+    - View: {fileID: 114008740732949870, guid: e7a2b791cbb7a224b811260a0f1799c2, type: 2}
+      Data:
+        Health: 200
     MinGenerationPoint: {x: -2, y: -2}
     MaxGenerationPoint: {x: 2, y: 2}
     DefaultStartHeight: 0.25

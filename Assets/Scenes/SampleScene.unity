@@ -923,6 +923,8 @@ MonoBehaviour:
     type: 2}
   _bombGenerationSettingsProvider: {fileID: 11400000, guid: fbe48b39bfd87c248a999f0a4373c8be,
     type: 2}
+  _damageSettingsProvider: {fileID: 11400000, guid: b3951db8c866ada438049c72723c33e8,
+    type: 2}
 --- !u!4 &1792773593
 Transform:
   m_ObjectHideFlags: 0

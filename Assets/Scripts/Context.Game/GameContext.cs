@@ -11,12 +11,14 @@ namespace Context.Game
     {
         private readonly UnitGenerationSettings _unitGenerationSettings;
         private readonly BombGenerationSettings _bombGenerationSettings;
+        private readonly DamageSettings _settings;
         private static GameContext _currentContext;
 
-        public GameContext(UnitGenerationSettings unitGenerationSettings, BombGenerationSettings bombGenerationSettings)
+        public GameContext(UnitGenerationSettings unitGenerationSettings, BombGenerationSettings bombGenerationSettings, DamageSettings settings)
         {
             _unitGenerationSettings = unitGenerationSettings;
             _bombGenerationSettings = bombGenerationSettings;
+            _settings = settings;
         }
 
         public override void Init()
@@ -24,7 +26,7 @@ namespace Context.Game
             //todo: внедрение зависимостей можно автоматизировать
             AddService(new UnitGenerationService(this, _unitGenerationSettings));
             AddService(new UnitSpawnService(this));
-            AddService(new UnitDamageService(this));
+            AddService(new UnitDamageService(this, _settings));
             AddService(new UnitDestroyService());
             
             AddService(new BombGenerationService(this, _bombGenerationSettings));

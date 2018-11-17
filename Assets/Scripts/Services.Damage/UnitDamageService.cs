@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Components.Obstacle;
 using Components.Unit;
 using Context.Game;
 using Debug;
 using Entities;
 using Services.Base;
 using Signals.Unit;
+using UnityEngine;
 using Object = UnityEngine.Object;
 
 namespace Services.Damage
@@ -13,11 +15,13 @@ namespace Services.Damage
     public class UnitDamageService : IService, ISignalListener<UnitViewUnderAttackSignal>, ISignalListener<UnitSpawnedSignal>
     {
         private readonly ISignalService _signalService;
+        private readonly DamageSettings _settings;
         private readonly List<Unit> _units = new List<Unit>();
 
-        public UnitDamageService(ISignalService signalService)
+        public UnitDamageService(ISignalService signalService, DamageSettings settings)
         {
             _signalService = signalService;
+            _settings = settings;
             ClientOnlyConditionalDebug.Log("hello I am damage service");
         }
 
@@ -32,7 +36,7 @@ namespace Services.Damage
                 ClientOnlyConditionalDebug.LogWarning("unit not found");
                 return;
             }
-            unit.Damagable.CurrentHealth -= damage.Amount;
+            unit.Damagable.CurrentHealth -= GetCalculatedDamage(damage.Amount, signal.DamagerPosition, unit.View.transform.position);
             if (unit.Damagable.CurrentHealth > 0) 
                 return;
             _units.Remove(unit);
@@ -50,6 +54,16 @@ namespace Services.Damage
 
         void IDisposable.Dispose()
         {
+        }
+
+        private int GetCalculatedDamage(int damage, Vector3 damagePosition, Vector3 targetPosition)
+        {
+            RaycastHit hit;
+            UnityEngine.Debug.DrawLine(damagePosition, targetPosition);
+            if (!Physics.Linecast(damagePosition, targetPosition, out hit) || hit.transform.GetComponent<ObstacleView>() == null) 
+                return damage;
+            ClientOnlyConditionalDebug.Log("obstacle found");
+            return (int) (damage * _settings.ObstacleFactor);
         }
 
         private Unit GetUnitByView(UnitView view)

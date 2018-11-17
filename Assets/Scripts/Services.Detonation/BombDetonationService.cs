@@ -30,7 +30,13 @@ namespace Services.Detonation
             {
                 // ReSharper disable once AccessToModifiedClosure
                 collisionSubscription?.Dispose();
-                Detonate(bomb);
+                IDisposable detonateDelay = null;
+                detonateDelay = Observable.Timer(TimeSpan.FromSeconds(bomb.Data.DamageDelay)).Subscribe(__ =>
+                {
+                    // ReSharper disable once AccessToModifiedClosure
+                    detonateDelay?.Dispose();
+                    Detonate(bomb);
+                });
             });
         }
         
@@ -50,7 +56,7 @@ namespace Services.Detonation
                 {
                     var unit = _.GetComponent<UnitView>();
                     if (unit != null)
-                        _signalService.FireSignal(new UnitViewUnderAttackSignal(bomb.Data.Damage, unit));
+                        _signalService.FireSignal(new UnitViewUnderAttackSignal(bomb.Data.Damage, unit, bomb.View.transform.position));
                 });
             _signalService.FireSignal(new DestroyBombSignal(bomb));
         }
