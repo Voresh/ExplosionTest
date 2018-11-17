@@ -36,8 +36,7 @@ namespace Services.Damage
             if (unit.Damagable.CurrentHealth > 0) 
                 return;
             _units.Remove(unit);
-            _signalService.FireSignal(new UnitDiedSignal(unit));
-            Object.Destroy(unit.View.gameObject); //todo: tmp
+            _signalService.FireSignal(new DestroyUnitSignal(unit));
         }
 
         void ISignalListener<UnitSpawnedSignal>.SignalFired(UnitSpawnedSignal signal)

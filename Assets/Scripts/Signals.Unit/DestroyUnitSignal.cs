@@ -1,10 +1,10 @@
 ﻿namespace Signals.Unit
 {
-    public struct UnitDiedSignal
+    public struct DestroyUnitSignal
     {
         public readonly Entities.Unit Unit;
         
-        public UnitDiedSignal(Entities.Unit unit)
+        public DestroyUnitSignal(Entities.Unit unit)
         {
             Unit = unit;
         }
