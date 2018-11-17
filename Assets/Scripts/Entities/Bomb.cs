@@ -4,8 +4,8 @@ namespace Entities
 {
     public class Bomb
     {
-        public BombData Data;
-        public BombView View;
+        public readonly BombData Data;
+        public readonly BombView View;
 
         public Bomb(BombData data, BombView view)
         {

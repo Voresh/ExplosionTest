@@ -5,15 +5,15 @@ namespace Entities
 {
     public class Unit: IDamagable
     {
-        private readonly UnitData _data;
-        private readonly UnitView _view;
+        public readonly UnitData Data;
+        public readonly UnitView View;
         public Damagable Damagable { get; }
         
         public Unit(UnitData data, UnitView view)
         {
-            _data = data;
-            _view = view;
-            Damagable = new Damagable();
+            Data = data;
+            View = view;
+            Damagable = new Damagable {CurrentHealth = data.Health};
         }
     }
 }

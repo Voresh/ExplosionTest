@@ -1,7 +1,11 @@
-﻿namespace Components.Bomb
+﻿using System;
+
+namespace Components.Bomb
 {
+    [Serializable]
     public class BombData
     {
-        public int BaseDamageAmount;
+        public Damage.Damage Damage;
+        public float DamageRadius;
     }
 }

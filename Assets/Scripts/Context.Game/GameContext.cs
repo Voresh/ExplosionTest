@@ -29,7 +29,7 @@ namespace Context.Game
         
             AddService(new UnitDamageService(this));
             
-            AddService(new BombDetonationService());
+            AddService(new BombDetonationService(this));
         
             InitializeServices();
         }

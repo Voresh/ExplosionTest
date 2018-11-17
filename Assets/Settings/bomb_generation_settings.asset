@@ -13,7 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Settings:
     GeneratedObjects:
-    - View: {fileID: 114451625780884330, guid: b5dfd3569b658734aa6da87cf3f57f31, type: 2}
+    - Data:
+        Damage:
+          Amount: 50
+        DamageRadius: 2
+      View: {fileID: 114451625780884330, guid: b5dfd3569b658734aa6da87cf3f57f31, type: 2}
     MinGenerationPoint: {x: -2, y: -2}
     MaxGenerationPoint: {x: 2, y: 2}
     DefaultStartHeight: 3

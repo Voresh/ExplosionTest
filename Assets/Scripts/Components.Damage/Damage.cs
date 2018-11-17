@@ -1,8 +1,11 @@
-﻿namespace Components.Damage
+﻿using System;
+
+namespace Components.Damage
 {
+    [Serializable]
     public class Damage
     {
-        public readonly int Amount;
+        public int Amount;
 
         public Damage(int amount)
         {

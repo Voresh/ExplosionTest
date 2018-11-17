@@ -1,16 +1,17 @@
 ﻿using Components.Damage;
+using Components.Unit;
 
 namespace Signals.Unit
 {
     public struct UnitViewUnderAttackSignal
     {
         public readonly Damage Damage;
-        public readonly Damagable Target;
+        public readonly UnitView View;
 
-        public UnitViewUnderAttackSignal(Damage damage, Damagable target)
+        public UnitViewUnderAttackSignal(Damage damage, UnitView view)
         {
             Damage = damage;
-            Target = target;
+            View = view;
         }
     }
 }
