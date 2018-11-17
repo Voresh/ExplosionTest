@@ -19,3 +19,4 @@ MonoBehaviour:
     MinGenerationPoint: {x: -2, y: -2}
     MaxGenerationPoint: {x: 2, y: 2}
     DefaultStartHeight: 0.25
+    GenerationRateInSeconds: 0.5

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028364, g: 0.22571364, b: 0.30692187, a: 1}
+  m_IndirectSpecularColor: {r: 0.17574, g: 0.21991174, b: 0.3022386, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,13 +346,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 170076733}
-  m_LocalRotation: {x: 0.42261827, y: -0, z: -0, w: 0.9063079}
+  m_LocalRotation: {x: 0.5535523, y: -0, z: -0, w: 0.8328144}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 620388733}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50.000004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 67.222, y: 0, z: 0}
 --- !u!1 &172706847
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,6 +677,7 @@ GameObject:
   - component: {fileID: 645658998}
   - component: {fileID: 645658997}
   - component: {fileID: 645658996}
+  - component: {fileID: 645659000}
   m_Layer: 0
   m_Name: obstacle
   m_TagString: Untagged
@@ -751,6 +752,17 @@ Transform:
   m_Father: {fileID: 172706848}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &645659000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 645658995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170914390d142cdbc7c9f91bfed7d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &737975635
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,6 +806,7 @@ GameObject:
   - component: {fileID: 1585194646}
   - component: {fileID: 1585194645}
   - component: {fileID: 1585194644}
+  - component: {fileID: 1585194648}
   m_Layer: 0
   m_Name: obstacle (1)
   m_TagString: Untagged
@@ -868,6 +881,17 @@ Transform:
   m_Father: {fileID: 172706848}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1585194648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1585194643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170914390d142cdbc7c9f91bfed7d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1792773591
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +947,7 @@ GameObject:
   - component: {fileID: 1986320428}
   - component: {fileID: 1986320427}
   - component: {fileID: 1986320426}
+  - component: {fileID: 1986320430}
   m_Layer: 0
   m_Name: obstacle (2)
   m_TagString: Untagged
@@ -997,6 +1022,17 @@ Transform:
   m_Father: {fileID: 172706848}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &1986320430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1986320425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170914390d142cdbc7c9f91bfed7d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2072023094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,6 +1044,7 @@ GameObject:
   - component: {fileID: 2072023097}
   - component: {fileID: 2072023096}
   - component: {fileID: 2072023095}
+  - component: {fileID: 2072023099}
   m_Layer: 0
   m_Name: obstacle (3)
   m_TagString: Untagged
@@ -1082,3 +1119,14 @@ Transform:
   m_Father: {fileID: 172706848}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2072023099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072023094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e170914390d142cdbc7c9f91bfed7d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

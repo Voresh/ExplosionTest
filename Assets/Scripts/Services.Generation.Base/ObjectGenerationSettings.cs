@@ -9,5 +9,6 @@ namespace Services.Generation.Base
         public Vector2 MinGenerationPoint;
         public Vector2 MaxGenerationPoint;
         public float DefaultStartHeight;
+        public float GenerationRateInSeconds;
     }
 }

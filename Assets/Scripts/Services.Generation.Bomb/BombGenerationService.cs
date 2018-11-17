@@ -1,6 +1,7 @@
 ﻿using System;
 using Context.Game;
 using Debug;
+using Extensions;
 using Services.Base;
 using Signals;
 using Signals.Bomb;
@@ -25,16 +26,13 @@ namespace Services.Generation.Bomb
 
         void IService.Initialize()
         {
-            _spawnTimer = Observable.Timer(TimeSpan.FromSeconds(1))
+            _spawnTimer = Observable.Timer(TimeSpan.FromSeconds(_settings.GenerationRateInSeconds))
                 .Repeat()
                 .Subscribe(_ =>
                 {
-                    //todo: рандом можно выделить в отдельный провайдер и добавлять сюда как зависимость
                     var bomb = _settings.GeneratedObjects[Random.Range(0, _settings.GeneratedObjects.Count)];
-                    var x = Random.Range(_settings.MinGenerationPoint.x, _settings.MaxGenerationPoint.x);
-                    var z = Random.Range(_settings.MinGenerationPoint.y, _settings.MaxGenerationPoint.y);
-                    var y = _settings.DefaultStartHeight;
-                    _signalService.FireSignal(new SpawnBombSignal(bomb.View, bomb.Data, new Vector3(x, y, z)));
+                    _signalService.FireSignal(new SpawnBombSignal(bomb.View, bomb.Data,
+                        GenerationExtensions.GetRandomPoint(_settings.MinGenerationPoint, _settings.MaxGenerationPoint, _settings.DefaultStartHeight)));
                 });
         }
 

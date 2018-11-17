@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Linq;
+using Components.Obstacle;
+using Components.Unit;
 using Context.Game;
 using Debug;
+using Extensions;
 using Services.Base;
 using Signals.Unit;
 using UniRx;
@@ -24,18 +28,22 @@ namespace Services.Generation.Unit
 
         void IService.Initialize()
         {
-            _spawnTimer = Observable.Timer(TimeSpan.FromSeconds(1))
+            _spawnTimer = Observable.Timer(TimeSpan.FromSeconds(_settings.GenerationRateInSeconds))
                 .Repeat()
                 .Subscribe(_ =>
                 {
-                    //todo: избежание коллизий https://docs.unity3d.com/ScriptReference/Physics.OverlapBox.html
-                    //todo: рандом можно выделить в отдельный провайдер и добавлять сюда как зависимость
                     var unit = _settings.GeneratedObjects[Random.Range(0, _settings.GeneratedObjects.Count)];
-                    var x = Random.Range(_settings.MinGenerationPoint.x, _settings.MaxGenerationPoint.x);
-                    var z = Random.Range(_settings.MinGenerationPoint.y, _settings.MaxGenerationPoint.y);
-                    var y = _settings.DefaultStartHeight;
-                    _signalService.FireSignal(new SpawnUnitSignal(unit.View, unit.Data, new Vector3(x, y, z)));
+                    var targetPosition =
+                        GenerationExtensions.GetRandomPoint(_settings.MinGenerationPoint, _settings.MaxGenerationPoint, _settings.DefaultStartHeight);
+                    if (UnitCanBeSpawned(targetPosition, unit.View.transform.localScale))
+                        _signalService.FireSignal(new SpawnUnitSignal(unit.View, unit.Data,targetPosition));
                 });
+        }
+
+        private static bool UnitCanBeSpawned(Vector3 position, Vector3 scale)
+        {
+            var overlappingColliders = Physics.OverlapBox(position, scale / 2f);
+            return !overlappingColliders.Any(_ => _.GetComponent<UnitView>() != null || _.GetComponent<ObstacleView>() != null);
         }
 
         void IDisposable.Dispose()
