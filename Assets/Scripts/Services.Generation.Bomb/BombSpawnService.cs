@@ -19,6 +19,8 @@ namespace Services.Generation.Bomb
         void ISignalListener<SpawnBombSignal>.SignalFired(SpawnBombSignal signal)
         {
             var viewInstance = Object.Instantiate(signal.View, signal.Position, Quaternion.identity);
+            var bomb = new Entities.Bomb(signal.Data, viewInstance);
+            _signalService.FireSignal(new BombSpawnedSignal(bomb));
         }
 
         void IService.Initialize()

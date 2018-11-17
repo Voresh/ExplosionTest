@@ -1,4 +1,5 @@
 ﻿using Services.Damage;
+using Services.Detonation;
 using Services.Generation;
 using Services.Generation.Bomb;
 using Services.Generation.Unit;
@@ -27,6 +28,8 @@ namespace Context.Game
             AddService(new BombSpawnService(this));
         
             AddService(new UnitDamageService(this));
+            
+            AddService(new BombDetonationService());
         
             InitializeServices();
         }

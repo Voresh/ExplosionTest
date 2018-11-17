@@ -5,10 +5,10 @@ namespace Entities
 {
     public class Unit: IDamagable
     {
-        public Damagable Damagable { get; }
-        private UnitData _data;
+        private readonly UnitData _data;
         private readonly UnitView _view;
-
+        public Damagable Damagable { get; }
+        
         public Unit(UnitData data, UnitView view)
         {
             _data = data;
