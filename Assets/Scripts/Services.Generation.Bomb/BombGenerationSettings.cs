@@ -4,7 +4,7 @@ using Services.Generation.Base;
 namespace Services.Generation.Bomb
 {
     [Serializable]
-    public class BombGenerationSettings: ObjectGenerationSettings<BombGenerationData>
+    public class BombGenerationSettings : ObjectGenerationSettings<BombGenerationData>
     {
     }
 }

@@ -8,7 +8,6 @@ using Entities;
 using Services.Base;
 using Signals.Unit;
 using UnityEngine;
-using Object = UnityEngine.Object;
 
 namespace Services.Damage
 {
@@ -36,8 +35,9 @@ namespace Services.Damage
                 ClientOnlyConditionalDebug.LogWarning("unit not found");
                 return;
             }
+
             unit.Damagable.CurrentHealth -= GetCalculatedDamage(damage.Amount, signal.DamagerPosition, unit.View.transform.position);
-            if (unit.Damagable.CurrentHealth > 0) 
+            if (unit.Damagable.CurrentHealth > 0)
                 return;
             _units.Remove(unit);
             _signalService.FireSignal(new DestroyUnitSignal(unit));
@@ -60,7 +60,7 @@ namespace Services.Damage
         {
             RaycastHit hit;
             UnityEngine.Debug.DrawLine(damagePosition, targetPosition);
-            if (!Physics.Linecast(damagePosition, targetPosition, out hit) || hit.transform.GetComponent<ObstacleView>() == null) 
+            if (!Physics.Linecast(damagePosition, targetPosition, out hit) || hit.transform.GetComponent<ObstacleView>() == null)
                 return damage;
             ClientOnlyConditionalDebug.Log("obstacle found");
             return (int) (damage * _settings.ObstacleFactor);

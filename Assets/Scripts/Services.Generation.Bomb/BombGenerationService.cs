@@ -3,15 +3,13 @@ using Context.Game;
 using Debug;
 using Extensions;
 using Services.Base;
-using Signals;
 using Signals.Bomb;
 using UniRx;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Services.Generation.Bomb
 {
-    public class BombGenerationService: IService
+    public class BombGenerationService : IService
     {
         private readonly ISignalService _signalService;
         private readonly BombGenerationSettings _settings;

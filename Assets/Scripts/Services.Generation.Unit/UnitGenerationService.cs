@@ -13,7 +13,7 @@ using Random = UnityEngine.Random;
 
 namespace Services.Generation.Unit
 {
-    public class UnitGenerationService: IService
+    public class UnitGenerationService : IService
     {
         private readonly ISignalService _signalService;
         private readonly UnitGenerationSettings _settings;
@@ -36,7 +36,7 @@ namespace Services.Generation.Unit
                     var targetPosition =
                         GenerationExtensions.GetRandomPoint(_settings.MinGenerationPoint, _settings.MaxGenerationPoint, _settings.DefaultStartHeight);
                     if (UnitCanBeSpawned(targetPosition, unit.View.transform.localScale))
-                        _signalService.FireSignal(new SpawnUnitSignal(unit.View, unit.Data,targetPosition));
+                        _signalService.FireSignal(new SpawnUnitSignal(unit.View, unit.Data, targetPosition));
                 });
         }
 

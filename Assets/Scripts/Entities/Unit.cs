@@ -3,12 +3,12 @@ using Components.Unit;
 
 namespace Entities
 {
-    public class Unit: IDamagable
+    public class Unit : IDamagable
     {
         public readonly UnitData Data;
         public readonly UnitView View;
         public Damagable Damagable { get; }
-        
+
         public Unit(UnitData data, UnitView view)
         {
             Data = data;

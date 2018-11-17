@@ -2,8 +2,7 @@
 
 namespace Components.Bomb
 {
-    public class BombView: MonoBehaviour
+    public class BombView : MonoBehaviour
     {
-        
     }
 }

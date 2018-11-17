@@ -6,13 +6,13 @@ using Object = UnityEngine.Object;
 
 namespace Services.Destroy
 {
-    public class BombDestroyService: IService, ISignalListener<DestroyBombSignal>
-    {     
+    public class BombDestroyService : IService, ISignalListener<DestroyBombSignal>
+    {
         void ISignalListener<DestroyBombSignal>.SignalFired(DestroyBombSignal signal)
         {
             Object.Destroy(signal.bomb.View.gameObject);
         }
-        
+
         void IService.Initialize()
         {
         }

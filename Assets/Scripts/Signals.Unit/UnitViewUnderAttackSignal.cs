@@ -6,7 +6,7 @@ namespace Signals.Unit
 {
     public struct UnitViewUnderAttackSignal
     {
-        public readonly Vector3 DamagerPosition; 
+        public readonly Vector3 DamagerPosition;
         public readonly Damage Damage;
         public readonly UnitView View;
 

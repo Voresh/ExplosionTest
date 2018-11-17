@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace Services.Detonation
 {
-    public class BombDetonationService: IService, ISignalListener<BombSpawnedSignal>
+    public class BombDetonationService : IService, ISignalListener<BombSpawnedSignal>
     {
         private readonly ISignalService _signalService;
 
@@ -39,7 +39,7 @@ namespace Services.Detonation
                 });
             });
         }
-        
+
         void IService.Initialize()
         {
         }

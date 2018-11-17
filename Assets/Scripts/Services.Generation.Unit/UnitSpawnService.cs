@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 
 namespace Services.Generation.Unit
 {
-    public class UnitSpawnService: IService, ISignalListener<SpawnUnitSignal>
+    public class UnitSpawnService : IService, ISignalListener<SpawnUnitSignal>
     {
         private readonly ISignalService _signalService;
 
@@ -24,11 +24,11 @@ namespace Services.Generation.Unit
             var unit = new Entities.Unit(signal.Data, viewInstance);
             _signalService.FireSignal(new UnitSpawnedSignal(unit));
         }
-        
+
         void IService.Initialize()
         {
         }
-        
+
         void IDisposable.Dispose()
         {
         }
